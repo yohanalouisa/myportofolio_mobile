@@ -2,10 +2,10 @@ import 'package:material_ui/material_ui.dart';
 import 'package:myportofolio_mobile/screens/menu.dart';
 import 'package:myportofolio_mobile/screens/project_form.dart';
 
-class ItemCard extends StatelessWidget {
+class ProjectCard extends StatelessWidget {
   final ItemHomepage item;
 
-  const ItemCard(this.item, {super.key});
+  const ProjectCard(this.item, {super.key});
 
   @override
   Widget build(BuildContext context) {

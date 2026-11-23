@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:myportofolio_mobile/widgets/left_drawer.dart';
 import 'package:myportofolio_mobile/widgets/project_card.dart';
+import 'package:myportofolio_mobile/widgets/experience_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -13,9 +14,9 @@ class MyHomePage extends StatelessWidget {
     ItemHomepage("Lihat Proyek", Icons.folder, Colors.blue),
     ItemHomepage("Tambah Proyek", Icons.add_circle, Colors.green),
     ItemHomepage("Logout", Icons.logout, Colors.red),
-    ItemHomepage("Lihat Skills", Icons.check_circle_outline_sharp, Colors.pinkAccent),
-    ItemHomepage("Tambah Skills", Icons.add_circle, Colors.orange),
-    ItemHomepage("Lihat Education", Icons.school, Colors.teal),
+    ItemHomepage("Lihat Experience", Icons.check_circle_outline_sharp, Colors.pinkAccent),
+    ItemHomepage("Tambah Experience", Icons.add_circle, Colors.orange),
+    ItemHomepage("Lihat Skills", Icons.auto_awesome, Colors.teal),
   ];
 
   @override
@@ -36,7 +37,7 @@ class MyHomePage extends StatelessWidget {
       ),
       // Body halaman utama dengan padding di sekelilingnya.
       drawer: const LeftDrawer(),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,8 +78,15 @@ class MyHomePage extends StatelessWidget {
                     crossAxisCount: 3,
                     // shrinkWrap agar ukuran kisi menyesuaikan tinggi konten anak.
                     shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     children: items.map((ItemHomepage item) {
-                      return ItemCard(item);
+                      if (item.name == "Tambah Proyek"){
+                        return ProjectCard(item);
+                      } else if (item.name == "Tambah Experience"){
+                        return ExperienceCard(item);
+                      } else{
+                        return ProjectCard(item);
+                      }
                     }).toList(),
                   ),
                 ],
