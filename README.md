@@ -29,5 +29,36 @@ Class : PBP E
   
 ```AI Disclosure```  
 Pada tugas 7 ini saya tidak menggunakan AI. Tutorial 8 sebagai panduan.  
-
+  
+### Assignment 8  
+  
+```Pertanyaan Reflektif```  
+1. Jelaskan perbedaan antara Navigator.push(), Navigator.pushReplacement(), dan Navigator.pop(). Metode apa yang digunakan untuk membuka formulir dari kartu aksi? Jelaskan juga bagaimana opsi Home di drawer membawa pengguna kembali ke halaman utama.  
+`Jawaban`:  
+- `Navigator.push()` : Menambahkan suatu route ke paling atas stack dalam stack route yang dikelola Navigator sehingga akan muncul dan ditampilkan kepada user.  
+- `Navigator.pushReplacement()` : Menghapus route yang sedang ditampilkan dan menggantinya dengan route baru tanpa mengubah kondisi elemen stack di bawahnya.  
+- `Navigator.pop()` : Menghapus route yang sedang ditampilkan kepada user dari stack yang dikelola Navigator sehingga berpindah ke next route.  
+Metode yang digunakan untuk membuka formulir dari kartu aksi adalah `Navigator.push()`.  
+Opsi home pada drware menggunakan `Navigator.pushReplacement()` untuk beroindah ke MyHomepage.  
+  
+2. Bagaimana susunan Scaffold, AppBar, dan Drawer membantu menjaga struktur halaman tetap konsisten? Berikan satu contoh penggunaan warna tema portofolio di lebih dari satu halaman.  
+`Jawaban`: `Scaffold` sebagai kerangka utama yang mengatur `AppBar`, `Drawer`, dan `body`. `AppBar` memberikan identitas halaman yang konsisten. `Drawer` menyediakan menu navigasi yang sama sehingga user dapat berpindah halaman.  
+Contoh: Theme.of(context).colorScheme.primary pada Home dan ExperienceForm. kedua halman konsisiten dengan `main.dart`.  
+  
+3. Mengapa tata letak tersebut dipilih untuk formulir? Jelaskan peran widget pengatur jarak dan widget penggulir ketika ruang layar terbatas.  
+`Jawaban`: Tata letak tersebut dipilih menyusun elemen agar formulir tampak rapi dan user-friendly. Untuk field input digunakan widget Column.  
+- `SizeBox`: memberikan jarak antar elemen atau menentukan ukuran suatu elemen.  
+- `Padding`: memberikan jarak di sekitar suatu widget  
+- `SingleChildScrollView`: membuat konten dapat digulir.  
+  
+4. Apa peran `GlobalKey<FormState>`, validator, dan `validate()` saat tombol Simpan ditekan? Berikan satu contoh nilai yang ditolak oleh validasi dan jelaskan mengapa memilih jenis input atau papan ketik saja belum cukup.  
+`Jawaban`: `GlobalKey<FormState>` berperan dalam pengaksesan dan pengelolaan state dari widgetForm. validator untuk memvalidasi isi `TextFormFiels` dan mengembalikan error jika input tidak sesuai. `validate()` dipanggil saat button save ditekan. method ini akan menjalankan semua validator pada form.  
+contoh input yang ditolak :  
+if (value == null || value.isEmpty()){
+    return "Tanggal Mulai tidak boleh kosong";
+}  
+User bisa saja memberikan input kosong (tidak valid). Maka dari itu proses validasi oleh validator bekerja memastikan data yang disimpan sesuai ketentuan.  
+    
+```AI Disclosure```  
+Pada tugas 8 ini saya tidak menggunakan AI dalam pengerjaannya. Saya menggunakan Tutorial 9 sebagai panduan.  
 
